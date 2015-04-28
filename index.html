@@ -5,25 +5,35 @@
 	<title>Find Me Coffee</title>
 	<link rel="stylesheet" href="css/styles.css">
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+	<link href='http://fonts.googleapis.com/css?family=Lato:300,400' rel='stylesheet' type='text/css'>
 </head>
 <body>
-	
-	<h1>hello world</h1>
-	
-	<p>need caffeine now</p>
-	<div ng-controller="mainController">
 		
-		<input type="text" ng-model="searchLocation">
-		<button ng-click="search()">Submit</button>
-
-		<div class="art" ng-repeat="item in data">
-			<h2>{{item.venue.name}}</h2>
-			<p><i class="fa fa-home"></i>{{item.venue.location.formattedAddress[0]}}, {{item.venue.location.formattedAddress[1]}}</p>
-			<a href="{{item.venue.url}}" target="_blank"><i class="fa fa-globe"></i>{{item.venue.url}}</a>
-			<a href="http://twitter.com/{{item.venue.contact.twitter}}" target="_blank"><i class="fa fa-twitter"></i>{{item.venue.contact.twitter}}</a>
-
-			<!-- <img ng-src="{{photo}}" alt=""> -->
+	<div class="controller" ng-controller="mainController">
+		
+		<div class="heroImage">
+			<div class="wrapper">
+				<div class="heroContent">
+					<h1>need caffeine now</h1>
+					<input type="text" ng-model="searchLocation" class="searchInput">
+					<label for="input[type="text"]">* ex. Toronto, ON</label>
+					<button ng-click="search()">Submit</button>
+				</div>
+			</div>
 		</div>
+
+		<section class="main">
+			<div class="wrapper">
+				<div class="shop" ng-repeat="item in data">
+					<h2>{{item.venue.name}}</h2>
+					<p><i class="fa fa-home"></i>{{item.venue.location.formattedAddress[0]}}, {{item.venue.location.formattedAddress[1]}}</p>
+					<a href="{{item.venue.url}}" target="_blank" ng-hide=" item.venue.url === undefined"><i class="fa fa-globe"></i>{{item.venue.url | httpReplace}}</a>
+					<a href="http://twitter.com/{{item.venue.contact.twitter}}" target="_blank" ng-hide=" item.venue.contact.twitter === undefined"><i class="fa fa-twitter"></i>{{item.venue.contact.twitter}}</a>
+
+					<!-- <img ng-src="{{photo}}" alt="">
+				</div>
+			</div> -->
+		</section>
 
 	</div>
 	

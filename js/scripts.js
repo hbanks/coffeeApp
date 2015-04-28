@@ -70,3 +70,15 @@ app.controller('mainController', function($scope, myData, $q){
 		};
 
 });
+
+// filter to remove the http:// from urls
+app.filter('httpReplace', function() {
+	return  function(text) {
+		if(text === undefined) {
+			return text;
+		}
+		else {
+			return text.replace(/https?:\/\//, '');
+		}
+	}
+});

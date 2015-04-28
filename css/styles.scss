@@ -4,10 +4,102 @@
 // Variables
 //==============================================
 
-h1 {
-	color: white;	
+$headerfont: 'Lato', sans-serif;
+$fontweight: 300;
+
+//==============================================
+// default settings
+//==============================================
+
+html, body {
+	width: 100%;
+	height: 100%;
 }
 
-body {
-	background: purple;
+h1, h2, h3, p {
+	margin: 0;
+	padding: 0;
+	font-family: $headerfont;
+	font-weight: $fontweight;
+	text-transform: uppercase;
 }
+
+input, label, button {
+	font-family: $headerfont;
+	font-weight: $fontweight;
+}
+
+.wrapper {
+	height: 100%;
+	width: 1200px;
+	width: 80%;
+	margin: 0 auto;
+}
+
+
+
+.controller {
+	height: 100%;
+}
+
+//==============================================
+// hero section
+//==============================================
+
+.heroContent {
+	position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 1;
+}
+
+.heroImage {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	background: rgba(255, 255, 255, 0.3);
+	// background-image: url('../i/coffeehouses.jpg');
+	// background-attachment: fixed;
+	// background-size: cover;
+	// background-position: center;
+	// background-color: rgba(255,255,255,0.2);
+}
+
+.heroImage::after {
+  content: "";
+  position: absolute;
+  background: url('../i/coffeehouses.jpg') no-repeat;
+  background-size: cover;
+	background-position: center;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  // -webit-filter: blur(20px) grayscale(20%);
+  // filter: blur(20px) grayscale(20%); /* Go wild! */
+}
+
+//==============================================
+// search section
+//==============================================
+
+.searchInput {
+	padding: 5px 10px;
+	// width: 50%;
+}
+
+//==============================================
+// main section
+//==============================================
+
+.main {
+	margin: 0 auto;
+}
+
+.shop {
+	text-align: center;
+	padding: 25px;
+}
+
