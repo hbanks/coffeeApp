@@ -2,10 +2,11 @@
 <html lang="en" ng-app="myApp">
 <head>
 	<meta charset="UTF-8">
-	<title>Find Me Coffee</title>
+	<title>Need Caffeine Now</title>
 	<link rel="stylesheet" href="css/styles.css">
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 	<link href='http://fonts.googleapis.com/css?family=Lato:300,400' rel='stylesheet' type='text/css'>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 		
@@ -15,30 +16,28 @@
 			<div class="wrapper">
 				<div class="heroContent">
 					<h1>need caffeine now</h1>
-					<input type="text" ng-model="searchLocation" class="searchInput">
-					<label for="input[type="text"]">* ex. Toronto, ON</label>
-					<button ng-click="search()">Submit</button>
+					<input type="text" ng-model="searchLocation" class="searchInput" placeholder="Pick a location!">
+					<button ng-click="search()" class="searchButton">Submit</button>
+					<p>* ex. Toronto, ON</p>
 				</div>
 			</div>
-		</div>
+		</div> <!-- end hero section -->
 
-		<section class="main">
+		<section id="main" class="main">
 			<div class="wrapper">
 				<div class="shop" ng-repeat="item in data">
 					<h2>{{item.venue.name}}</h2>
 					<p><i class="fa fa-home"></i>{{item.venue.location.formattedAddress[0]}}, {{item.venue.location.formattedAddress[1]}}</p>
 					<a href="{{item.venue.url}}" target="_blank" ng-hide=" item.venue.url === undefined"><i class="fa fa-globe"></i>{{item.venue.url | httpReplace}}</a>
 					<a href="http://twitter.com/{{item.venue.contact.twitter}}" target="_blank" ng-hide=" item.venue.contact.twitter === undefined"><i class="fa fa-twitter"></i>{{item.venue.contact.twitter}}</a>
-
-					<!-- <img ng-src="{{photo}}" alt="">
 				</div>
-			</div> -->
-		</section>
+			</div>
+		</section> <!-- end main section -->
 
-	</div>
+	</div> <!-- end controller -->
 	
 	<script src="js/angular.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.14/angular-ui-router.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 	<script src="js/scripts.js"></script>
 </body>
 </html>
